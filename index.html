@@ -3,136 +3,183 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>For Samana — A Little Comfort 💖</title>
+  <title>For Samana 💖 — From Krrish (Hubby)</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: 'Poppins', sans-serif;
-      display:flex;align-items:center;justify-content:center;
-      min-height:100vh;
-      background: linear-gradient(120deg,#f7e9ff 0%, #fff6f0 45%, #e8fbff 100%);
-      overflow-x:hidden;
-      color:#333;
+    :root{
+      --bg:#fff7fb;
+      --accent:#ff6b9a;
+      --soft:#ffdfe6;
+      --text:#333;
+      --card:#ffffff;
     }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--text);background:linear-gradient(180deg,var(--bg),#fff);}
+    .stage{min-height:100vh;display:grid;place-items:center;padding:32px;}
+    .card{width:100%;max-width:1080px;background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.6));border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.08);overflow:hidden;display:grid;grid-template-columns:1fr 420px;gap:20px;padding:28px;align-items:stretch}
 
-    .card{
-      width:min(980px,96%);
-      background:rgba(255,255,255,0.9);
-      border-radius:24px; padding:32px; box-shadow:0 12px 40px rgba(14,22,47,0.12);
-      position:relative; overflow:hidden;
-    }
+    /* Left hero */
+    .hero{padding:18px}
+    h1{margin:0;font-size:34px}
+    .subtitle{color:#8a6d83;margin-top:8px}
+    .hubby{display:inline-block;margin-left:10px;background:linear-gradient(90deg,#ffd1e6,#ff9ab6);padding:6px 12px;border-radius:999px;font-weight:700;transform-origin:center;animation:float 3s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 
-    h1{font-size:28px;line-height:1.2}
-    p.lead{opacity:0.85;margin-top:6px;font-size:16px}
+    /* animated gifs area */
+    .gifs{display:flex;gap:12px;margin-top:18px}
+    .gbox{flex:1;border-radius:12px;overflow:hidden;position:relative;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+    .gbox img{width:100%;height:220px;object-fit:cover;display:block}
+    .gbox .caption{padding:10px;font-size:14px}
 
-    /* Floating hearts */
-    .hearts{position:absolute;inset:0;pointer-events:none;z-index:1}
-    .heart{
-      position:absolute;width:18px;height:18px;transform:translate(-50%,-50%);
-      background:linear-gradient(45deg,#ff6b9a,#ffb199);clip-path:polygon(50% 0%, 61% 15%, 75% 15%, 82% 25%, 82% 40%, 50% 80%, 18% 40%, 18% 25%, 25% 15%, 39% 15%);
-      opacity:0.95;filter:drop-shadow(0 6px 12px rgba(255,107,154,0.12));
-      animation:floatUp linear infinite;
-    }
-    @keyframes floatUp{
-      0%{transform:translateY(30px) scale(0.85); opacity:0}
-      20%{opacity:1}
-      100%{transform:translateY(-260px) scale(1.1); opacity:0}
-    }
+    /* right column */
+    .side{padding:10px;display:flex;flex-direction:column;gap:12px}
+    .mini{background:linear-gradient(180deg,#fff,#fff);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
 
-    /* 3D rotating text */
-    .amaze{
-      margin:28px 0;text-align:center;font-size:26px;font-weight:700;
-      perspective:1000px;overflow:hidden;
-    }
-    .amaze span{
-      display:inline-block;animation:rotateText 8s infinite linear;
-    }
-    @keyframes rotateText{
-      0%{transform:rotateY(0)}
-      50%{transform:rotateY(180deg)}
-      100%{transform:rotateY(360deg)}
-    }
+    .kitkat-btn{display:flex;gap:10px;align-items:center;justify-content:center;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,#ff7aa2,#ff4b6e);color:white;font-weight:700;cursor:pointer;font-size:16px}
+    .kitkat-btn:active{transform:translateY(2px)}
 
-    /* Sparkle animation */
-    .sparkle-text{
-      position:relative;display:inline-block;color:#ff6b9a;font-weight:800;
-    }
-    .sparkle-text::after{
-      content:'';position:absolute;width:8px;height:8px;border-radius:50%;
-      top:-6px;right:-10px;background:gold;box-shadow:0 0 12px gold;
-      animation:spark 2s infinite ease-in-out;
-    }
-    @keyframes spark{0%,100%{opacity:0;transform:scale(0.5)}50%{opacity:1;transform:scale(1.2)}}
+    .knit-preview{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .wool{height:90px;object-fit:cover;border-radius:8px}
 
-    /* Shooting stars */
-    .shooting-star{
-      position:fixed;width:2px;height:80px;background:linear-gradient(to top,#fff,transparent);
-      top:-100px;left:50%;opacity:0.8;z-index:0;
-      animation:shoot 5s linear infinite;
-    }
-    @keyframes shoot{
-      0%{transform:translate(-200px,-200px) rotate(45deg);opacity:0}
-      10%{opacity:1}
-      50%{transform:translate(300px,300px) rotate(45deg);opacity:0}
-      100%{opacity:0}
-    }
+    /* cute cat badge */
+    .cat-badge{display:flex;align-items:center;gap:10px}
+    .cat-badge img{width:64px;height:64px;border-radius:12px}
 
-    /* Sections */
-    .panel{margin:20px 0;padding:20px;border-radius:16px;background:rgba(255,255,255,0.7)}
-    .btn-hug,.btn-tea,.btn-massage{
-      padding:12px 18px;border:0;border-radius:12px;font-weight:600;cursor:pointer;margin:6px;
-    }
-    .btn-hug{background:linear-gradient(90deg,#ff9aa2,#ffb199);color:#fff}
-    .btn-tea{background:#fff;border:1px solid #ffd6a5}
-    .btn-massage{background:linear-gradient(90deg,#9be7ff,#c9f8ff)}
+    /* confetti canvas */
+    #confetti{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
 
-    footer{margin-top:20px;text-align:center;font-size:14px;opacity:0.8}
+    footer{grid-column:1/-1;padding:12px;text-align:center;color:#a47a90;font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){.card{grid-template-columns:1fr;}.gbox img{height:160px}}
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="hearts" id="heartsContainer"></div>
-    <div class="shooting-star"></div>
+  <div class="stage">
+    <div class="card" role="main" aria-label="Sweet page for Samana">
+      <div class="hero">
+        <h1>Hey <span style="color:var(--accent)">Samana</span> — I made this for you <span class="hubby">Hubby 💕</span></h1>
+        <p class="subtitle">I know you're feeling low — here's a little page full of things you love: cats, chocolate, and cozy woolen vibes. — <strong>Krrish</strong></p>
 
-    <h1>For <span class="sparkle-text">Samana Parajuli</span> 💖</h1>
-    <p class="lead">From Krrish Nyoupane — your personal coder & cheerleader.</p>
+        <div class="gifs" aria-hidden="false">
+          <div class="gbox" id="catBox">
+            <img id="catGif" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="cute cat gif" />
+            <div class="caption">A cute cat to brighten the day 🐱</div>
+          </div>
 
-    <div class="amaze"><span>You are my sunshine 🌞</span></div>
+          <div class="gbox" id="kitBox">
+            <img id="kitGif" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="kitkat gif" />
+            <div class="caption">Your favourite — KitKat — Have a break 🍫</div>
+          </div>
 
-    <div class="panel">
-      <p>Hey Samana, I know you are in pain right now, but this little world is built only to make you smile. Every star here whispers <strong>“I love you”</strong>.</p>
-      <div>
-        <button class="btn-hug" id="btnHug">Send Hug 🤗</button>
-        <button class="btn-tea" id="btnTea">Warm Tea ☕</button>
-        <button class="btn-massage" id="btnMassage">Massage Tips ✋</button>
+          <div class="gbox" id="knitBox">
+            <img id="knitGif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="knitting gif" />
+            <div class="caption">Wool &amp; cozy — your handiwork inspires me 🧶</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+          <button class="kitkat-btn" id="sendKit">Send a virtual KitKat</button>
+          <button class="kitkat-btn" id="hugBtn" style="background:linear-gradient(90deg,#ffd1e6,#ff9ab6);color:#5b1036">Hug Samana 🤗</button>
+        </div>
+
+        <div style="margin-top:14px;font-size:14px;color:#7a5a6b">Tip: Click the KitKat button to drop a chocolate and watch the confetti. Click Hug for a calming pulsing heart.</div>
       </div>
-    </div>
 
-    <footer>
-      Made with infinite love for Samana ❤️
-    </footer>
+      <aside class="side" aria-label="Side panel">
+        <div class="mini cat-badge">
+          <img src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="cute cat face" />
+          <div>
+            <div style="font-weight:700">Samana — Cat Lover</div>
+            <div style="font-size:13px;color:#9b7e91">Here's a kitty nudge from me ❤️</div>
+          </div>
+        </div>
+
+        <div class="mini">
+          <div style="font-weight:700;margin-bottom:6px">Latest knit — inspiration</div>
+          <div class="knit-preview">
+            <img class="wool" src="https://images.unsplash.com/photo-1604419476222-6c7d3f5d8d64?auto=format&fit=crop&w=400&q=60" alt="wool project 1" />
+            <img class="wool" src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=400&q=60" alt="wool project 2" />
+          </div>
+        </div>
+
+        <div class="mini">
+          <div style="font-weight:700">Quick love notes</div>
+          <div id="notesArea" style="margin-top:8px">You are my sunshine. <button id="editNote" style="margin-left:8px;padding:6px;border-radius:6px;border:none;cursor:pointer">Edit</button></div>
+        </div>
+
+        <div class="mini" style="text-align:center">
+          <div style="font-weight:700">Relaxing audio (optional)</div>
+          <audio controls style="width:100%;margin-top:8px" id="calmAudio">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+      </aside>
+
+      <canvas id="confetti"></canvas>
+
+      <footer>Made with love by Krrish (Hubby). If you want changes, tell me and I'll tweak colors, animations or add more gifs 💌</footer>
+    </div>
   </div>
 
   <script>
-    const heartsContainer=document.getElementById('heartsContainer');
-    function spawnHearts(count=16){
-      for(let i=0;i<count;i++){
-        const h=document.createElement('div');
-        h.className='heart';
-        h.style.left=Math.random()*100+'%';
-        h.style.bottom=(-20-Math.random()*40)+'px';
-        h.style.width=(12+Math.random()*20)+'px';
-        h.style.height=h.style.width;
-        h.style.animationDuration=(6+Math.random()*6)+'s';
-        h.style.animationDelay=Math.random()*5+'s';
-        heartsContainer.appendChild(h);
-      }
-    }
-    spawnHearts();
+    // small interactive bits
+    const sendKit = document.getElementById('sendKit');
+    const hugBtn = document.getElementById('hugBtn');
+    const confettiCanvas = document.getElementById('confetti');
+    const notesArea = document.getElementById('notesArea');
+    const editNote = document.getElementById('editNote');
 
-    document.getElementById('btnHug').onclick=()=>alert('Big hug from Krrish 🤗❤️');
-    document.getElementById('btnTea').onclick=()=>alert('Here is some warm tea to ease the pain ☕');
-    document.getElementById('btnMassage').onclick=()=>alert('Massage Tip: Gentle circular motion on tummy helps ✋');
+    // Simple confetti (lightweight)
+    function launchConfetti(){
+      const c = confettiCanvas; const ctx = c.getContext('2d');
+      c.width = c.offsetWidth; c.height = c.offsetHeight; const pieces = [];
+      for(let i=0;i<80;i++) pieces.push({x:Math.random()*c.width,y:Math.random()*-c.height, vx:(Math.random()-0.5)*4, vy:Math.random()*6+2, size:Math.random()*8+4, color:['#ff6b9a','#ffd1e6','#ffb3cc','#fff0f6'][Math.floor(Math.random()*4)]});
+      let t=0;
+      function frame(){ ctx.clearRect(0,0,c.width,c.height); t+=1; for(const p of pieces){p.x+=p.vx; p.y+=p.vy; p.vy+=0.05; ctx.fillStyle=p.color; ctx.fillRect(p.x,p.y,p.size, p.size*0.6); if(p.y>c.height+50){p.y=-20; p.x=Math.random()*c.width; p.vy=Math.random()*4+2}} if(t<200) requestAnimationFrame(frame); else ctx.clearRect(0,0,c.width,c.height);
+      }
+      frame();
+    }
+
+    sendKit.addEventListener('click',()=>{
+      // small bounce
+      sendKit.animate([{transform:'translateY(0)'},{transform:'translateY(-8px)'},{transform:'translateY(0)'}],{duration:500});
+      // swap to a fun kitkat gif briefly
+      const kit = document.getElementById('kitGif');
+      const old = kit.src; kit.src='https://media.giphy.com/media/26BRqM8h8x2e8t7uY/giphy.gif';
+      launchConfetti();
+      setTimeout(()=>kit.src=old,3000);
+    });
+
+    hugBtn.addEventListener('click',()=>{
+      hugBtn.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:600});
+      // gentle pulse on the Hubby badge
+      const hub = document.querySelector('.hubby');
+      hub.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:700});
+    });
+
+    editNote.addEventListener('click',()=>{
+      const current = notesArea.textContent.trim();
+      const txt = prompt('Write a short love note for Samana:', current.replace('Edit',''));
+      if(txt!==null){ notesArea.innerHTML = (txt||'You are loved.') + ' <button id="editNote" style="margin-left:8px;padding:6px;border-radius:6px;border:none;cursor:pointer">Edit</button>';
+        // reattach listener
+        document.getElementById('editNote').addEventListener('click', ()=> editNote.click());
+      }
+    });
+
+    // small accessibility: keyboard triggers
+    sendKit.addEventListener('keyup', (e)=>{ if(e.key==='Enter') sendKit.click(); });
+    hugBtn.addEventListener('keyup', (e)=>{ if(e.key==='Enter') hugBtn.click(); });
+
+    // make confetti canvas sized on resize
+    window.addEventListener('resize', ()=>{ confettiCanvas.width = confettiCanvas.offsetWidth; confettiCanvas.height = confettiCanvas.offsetHeight; });
+
+    // little randomized kitty blink on load
+    setTimeout(()=>{
+      const cat = document.getElementById('catGif');
+      cat.animate([{filter:'brightness(1)'},{filter:'brightness(1.1)'},{filter:'brightness(1)'}],{duration:2200,iterations:1});
+    },700);
+
   </script>
 </body>
 </html>
