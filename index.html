@@ -56,7 +56,7 @@
   <div class="stage">
     <div class="card" role="main" aria-label="Sweet page for Samana">
       <div class="hero">
-        <h1>Hey <span style="color:var(--accent)">Samana</span> — I made this for you <span class="hubby">Hubby 💕</span></h1>
+        <h1>Hey <span style="color:var(--accent)">Samana</span> — I made this for you my<span class="hubby">  Wifey 💕</span></h1>
         <p class="subtitle">I know you're feeling low — here's a little page full of things you love: cats, chocolate, and cozy woolen vibes. — <strong>Krrish</strong></p>
 
         <div class="gifs" aria-hidden="false">
@@ -66,7 +66,7 @@
           </div>
 
           <div class="gbox" id="kitBox">
-            <img id="kitGif" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="kitkat gif" />
+            <img id="kitGif" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE02UgEVRBflUJ9v1S9ok5lYApZD7y7RgWXw&s" alt="kitkat gif" />
             <div class="caption">Your favourite — KitKat — Have a break 🍫</div>
           </div>
 
@@ -81,7 +81,7 @@
           <button class="kitkat-btn" id="hugBtn" style="background:linear-gradient(90deg,#ffd1e6,#ff9ab6);color:#5b1036">Hug Samana 🤗</button>
         </div>
 
-        <div style="margin-top:14px;font-size:14px;color:#7a5a6b">Tip: Click the KitKat button to drop a chocolate and watch the confetti. Click Hug for a calming pulsing heart.</div>
+        <div style="margin-top:14px;font-size:14px;color:#7a5a6b">Tip: Click the KitKat button to drop KitKats and watch them fall. Click Hug for a calming pulsing heart.</div>
       </div>
 
       <aside class="side" aria-label="Side panel">
@@ -93,67 +93,74 @@
           </div>
         </div>
 
-        <div class="mini">
-          <div style="font-weight:700;margin-bottom:6px">Latest knit — inspiration</div>
-          <div class="knit-preview">
-            <img class="wool" src="https://images.unsplash.com/photo-1604419476222-6c7d3f5d8d64?auto=format&fit=crop&w=400&q=60" alt="wool project 1" />
-            <img class="wool" src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=400&q=60" alt="wool project 2" />
-          </div>
-        </div>
+        
 
         <div class="mini">
           <div style="font-weight:700">Quick love notes</div>
           <div id="notesArea" style="margin-top:8px">You are my sunshine. <button id="editNote" style="margin-left:8px;padding:6px;border-radius:6px;border:none;cursor:pointer">Edit</button></div>
         </div>
 
-        <div class="mini" style="text-align:center">
-          <div style="font-weight:700">Relaxing audio (optional)</div>
-          <audio controls style="width:100%;margin-top:8px" id="calmAudio">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
 
       </aside>
 
       <canvas id="confetti"></canvas>
 
-      <footer>Made with love by Krrish (Hubby). If you want changes, tell me and I'll tweak colors, animations or add more gifs 💌</footer>
+      <footer>Made with love by Krrish (Hubby). 💌</footer>
     </div>
   </div>
 
   <script>
-    // small interactive bits
     const sendKit = document.getElementById('sendKit');
     const hugBtn = document.getElementById('hugBtn');
     const confettiCanvas = document.getElementById('confetti');
     const notesArea = document.getElementById('notesArea');
     const editNote = document.getElementById('editNote');
 
-    // Simple confetti (lightweight)
-    function launchConfetti(){
-      const c = confettiCanvas; const ctx = c.getContext('2d');
-      c.width = c.offsetWidth; c.height = c.offsetHeight; const pieces = [];
-      for(let i=0;i<80;i++) pieces.push({x:Math.random()*c.width,y:Math.random()*-c.height, vx:(Math.random()-0.5)*4, vy:Math.random()*6+2, size:Math.random()*8+4, color:['#ff6b9a','#ffd1e6','#ffb3cc','#fff0f6'][Math.floor(Math.random()*4)]});
-      let t=0;
-      function frame(){ ctx.clearRect(0,0,c.width,c.height); t+=1; for(const p of pieces){p.x+=p.vx; p.y+=p.vy; p.vy+=0.05; ctx.fillStyle=p.color; ctx.fillRect(p.x,p.y,p.size, p.size*0.6); if(p.y>c.height+50){p.y=-20; p.x=Math.random()*c.width; p.vy=Math.random()*4+2}} if(t<200) requestAnimationFrame(frame); else ctx.clearRect(0,0,c.width,c.height);
+    // Falling KitKats
+    function launchKitKats(){
+      const c = confettiCanvas; 
+      const ctx = c.getContext('2d');
+      c.width = c.offsetWidth; 
+      c.height = c.offsetHeight; 
+      const pieces = [];
+
+      const kitkatImg = new Image();
+      kitkatImg.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/KitKat_bars_red_logo.svg/2560px-KitKat_bars_red_logo.svg.png";
+
+      for(let i=0;i<20;i++){
+        pieces.push({
+          x: Math.random()*c.width,
+          y: Math.random()*-c.height,
+          vx: (Math.random()-0.5)*2,
+          vy: Math.random()*3+2,
+          size: 60
+        });
+      }
+
+      function frame(){
+        ctx.clearRect(0,0,c.width,c.height);
+        for(const p of pieces){
+          p.x+=p.vx; 
+          p.y+=p.vy;
+          ctx.drawImage(kitkatImg, p.x, p.y, p.size, p.size*0.4);
+          if(p.y > c.height+50){ 
+            p.y = -20; 
+            p.x = Math.random()*c.width; 
+            p.vy = Math.random()*3+2;
+          }
+        }
+        requestAnimationFrame(frame);
       }
       frame();
     }
 
     sendKit.addEventListener('click',()=>{
-      // small bounce
       sendKit.animate([{transform:'translateY(0)'},{transform:'translateY(-8px)'},{transform:'translateY(0)'}],{duration:500});
-      // swap to a fun kitkat gif briefly
-      const kit = document.getElementById('kitGif');
-      const old = kit.src; kit.src='https://media.giphy.com/media/26BRqM8h8x2e8t7uY/giphy.gif';
-      launchConfetti();
-      setTimeout(()=>kit.src=old,3000);
+      launchKitKats();
     });
 
     hugBtn.addEventListener('click',()=>{
       hugBtn.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:600});
-      // gentle pulse on the Hubby badge
       const hub = document.querySelector('.hubby');
       hub.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:700});
     });
@@ -162,19 +169,12 @@
       const current = notesArea.textContent.trim();
       const txt = prompt('Write a short love note for Samana:', current.replace('Edit',''));
       if(txt!==null){ notesArea.innerHTML = (txt||'You are loved.') + ' <button id="editNote" style="margin-left:8px;padding:6px;border-radius:6px;border:none;cursor:pointer">Edit</button>';
-        // reattach listener
         document.getElementById('editNote').addEventListener('click', ()=> editNote.click());
       }
     });
 
-    // small accessibility: keyboard triggers
-    sendKit.addEventListener('keyup', (e)=>{ if(e.key==='Enter') sendKit.click(); });
-    hugBtn.addEventListener('keyup', (e)=>{ if(e.key==='Enter') hugBtn.click(); });
-
-    // make confetti canvas sized on resize
     window.addEventListener('resize', ()=>{ confettiCanvas.width = confettiCanvas.offsetWidth; confettiCanvas.height = confettiCanvas.offsetHeight; });
 
-    // little randomized kitty blink on load
     setTimeout(()=>{
       const cat = document.getElementById('catGif');
       cat.animate([{filter:'brightness(1)'},{filter:'brightness(1.1)'},{filter:'brightness(1)'}],{duration:2200,iterations:1});
